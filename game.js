@@ -8,7 +8,6 @@ let currentWeapon = 0;
 let fighting;
 
 let monsterHealth;
-let inventory = ['stick'];
 
 const button1 = document.querySelector('#button1');
 const button2 = document.querySelector('#button2');
@@ -25,6 +24,28 @@ const monsterHealthText = document.querySelector('#monsterHealth');
 button1.onclick = goStore;
 button2.onclick = goCave;
 button3.onclick = fightDragon;
+
+// weapons
+const weapons = [
+    {
+        name: 'stick',
+        power: 5
+    },
+    {
+        name: 'dagger',
+        power: 30
+    },
+    {
+        name: 'claw hammer',
+        power: 50
+    },
+    {
+        name: 'sword',
+        power: 100
+    }
+]
+
+let inventory = [weapons[0].name];
 
 //  locations
 const locations = [
@@ -79,16 +100,25 @@ function buyHealth(){
 
         goldText.innerText = gold;
         healthText.innerText = health;
+    } else {
+        text.innerText = 'You do not have enough gold to buy health';
     }
 }
 
 function buyWeapon(){
-    if(gold >= 10){
-        gold -= 10;
-        health += 10;
+    if(gold >= 30){
+        gold -= 30;
+        currentWeapon += 1;
 
         goldText.innerText = gold;
-        healthText.innerText = health;
+
+        let newWeapon = weapons[currentWeapon].name;
+        text.innerText = 'You now have a new weapon: ' + newWeapon + ' .';
+
+        inventory.push(newWeapon);
+        text.innerText += 'In your inventory you have: ' + inventory;
+    } else {
+        text.innerText = 'You do not have enough gold to buy that weapon';
     }
 }
 
