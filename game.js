@@ -1,3 +1,5 @@
+// generate images usin nightcafe AI
+
 let xp = 0;
 let health = 100;
 let gold = 50;
@@ -24,11 +26,39 @@ button1.onclick = goStore;
 button2.onclick = goCave;
 button3.onclick = fightDragon;
 
+function goTown(){
+    button1.innerText = 'Store';
+    button2.innerText = 'Cave';
+    button3.innerText = 'Fight dragon';
+    
+    button1.onclick = goStore;
+    button2.onclick = goCave;
+    button3.onclick = fightDragon;
+
+    text.innerText = 'You are in the town hall';
+}
+
 function goStore(){
-    console.log('Going to the store.');
+    button1.innerText = 'Buy potion (10 gold)';
+    button2.innerText = 'Buy sword (30 gold)';
+    button3.innerText = 'Go to town square';
+    
+    button1.onclick = buyHealth;
+    button2.onclick = buyWeapon;
+    button3.onclick = goTown;
+
+    text.innerText = 'Welcome to the store';
 }
 
 function goCave(){
+    console.log('Going to the cave.');
+}
+
+function buyHealth(){
+    console.log('Going to the cave.');
+}
+
+function buyWeapon(){
     console.log('Going to the cave.');
 }
 
