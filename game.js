@@ -26,28 +26,40 @@ button1.onclick = goStore;
 button2.onclick = goCave;
 button3.onclick = fightDragon;
 
-function goTown(){
-    button1.innerText = 'Store';
-    button2.innerText = 'Cave';
-    button3.innerText = 'Fight dragon';
-    
-    button1.onclick = goStore;
-    button2.onclick = goCave;
-    button3.onclick = fightDragon;
+//  locations
+const locations = [
+    {
+        name: 'town square',
+        'button text': ['Go to store', 'Go to cave', 'Fight dragon'],
+        'button functions': [goStore, goCave, fightDragon],
+        text: 'You are in the town hall'
+    },
+    {
+        name: 'store',
+        'button text': ['Buy health (10 gold)', 'Buy weapon (30 gold)', 'Go to town square'],
+        'button functions': [buyHealth, buyWeapon, goTown],
+        text: 'You enter the store'
+    }
+];
 
-    text.innerText = 'You are in the town hall';
+function update(location){
+    button1.innerText = location['button text'][0];
+    button2.innerText = location['button text'][1];
+    button3.innerText = location['button text'][2];
+    
+    button1.onclick = location['button functions'][0];
+    button2.onclick = location['button functions'][1];
+    button3.onclick = location['button functions'][2];
+
+    text.innerText = location.text;
+}
+
+function goTown(){
+    update(locations[0]);
 }
 
 function goStore(){
-    button1.innerText = 'Buy potion (10 gold)';
-    button2.innerText = 'Buy sword (30 gold)';
-    button3.innerText = 'Go to town square';
-    
-    button1.onclick = buyHealth;
-    button2.onclick = buyWeapon;
-    button3.onclick = goTown;
-
-    text.innerText = 'Welcome to the store';
+    update(locations[1]);
 }
 
 function goCave(){
