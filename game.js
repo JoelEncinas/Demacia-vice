@@ -9,6 +9,8 @@ let fighting;
 
 let monsterHealth;
 
+let inventory  = ['stick'];
+
 const button1 = document.querySelector('#button1');
 const button2 = document.querySelector('#button2');
 const button3 = document.querySelector('#button3');
@@ -44,8 +46,6 @@ const weapons = [
         power: 100
     }
 ]
-
-let inventory = [weapons[0].name];
 
 //  locations
 const locations = [
@@ -121,6 +121,22 @@ function buyWeapon(){
         } else {
             text.innerText = 'You do not have enough gold to buy that weapon';
         }
+    }  else {
+        text.innerText = 'You already have the most powerful weapon!';
+        button2.innerText = 'Sell weapon for 15 gold';
+        button2.onclick = sellWeapon;
+    }
+}
+
+function sellWeapon() {
+    if(inventory.length > 1){
+        gold += 15;
+        goldText.innerText = gold;
+        let currentWeapon = inventory.shift();
+        text.innerText = 'You ssold a ' + currentWeapon + '.';
+        text.innerText += ' In your inventory you  have: ' + inventory;
+    } else {
+        text.innerText = 'Don\'t sell your only weapon!';
     }
 }
 
