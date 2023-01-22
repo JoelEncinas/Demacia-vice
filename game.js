@@ -220,7 +220,7 @@ function attack(){
     if(health <= 0){
         lose();
     } else if(monsterHealth <= 0){
-        defeatMonster();
+        fighting === 2 ? winGame() : defeatMonster();
     }
 }
 
@@ -252,4 +252,8 @@ function restart() {
     healthText.innerText = health;
     xpText.innerText = xp;
     goTown();
+}
+
+function winGame() {
+    update(locations[6]);
 }
