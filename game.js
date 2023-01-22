@@ -96,12 +96,6 @@ const locations = [
         name: 'kill monster',
         'button text': ['Go to town square', 'Go to town square', 'Go to town square'],
         'button functions': [goTown, goTown, goTown],
-        text: 'TThe monster screams as it dies. You gain experience points and find gold.'
-    },
-    {
-        name: 'kill monster',
-        'button text': ['Go to town square', 'Go to town square', 'Go to town square'],
-        'button functions': [goTown, goTown, goTown],
         text: 'The monster screams as it dies. You gain experience points and find gold.'
     },
     {
@@ -109,6 +103,12 @@ const locations = [
         'button text': ['REPLAY?', 'REPLAY', 'REPLAY'],
         'button functions': [restart, restart, restart],
         text: 'You died'
+    },
+    {
+        name: 'win',
+        'button text': ['REPLAY?', 'REPLAY', 'REPLAY'],
+        'button functions': [restart, restart, restart],
+        text: 'You defeat the dragon! YOU WIN THE GAME!'
     }
 ];
 
@@ -177,7 +177,7 @@ function sellWeapon() {
         gold += 15;
         goldText.innerText = gold;
         let currentWeapon = inventory.shift();
-        text.innerText = 'You ssold a ' + currentWeapon + '.';
+        text.innerText = 'You sold a ' + currentWeapon + '.';
         text.innerText += ' In your inventory you  have: ' + inventory;
     } else {
         text.innerText = 'Don\'t sell your only weapon!';
