@@ -100,13 +100,13 @@ const locations = [
     },
     {
         name: 'lose',
-        'button text': ['REPLAY?', 'REPLAY', 'REPLAY'],
+        'button text': ['REPLAY?', 'REPLAY?', 'REPLAY?'],
         'button functions': [restart, restart, restart],
         text: 'You died'
     },
     {
         name: 'win',
-        'button text': ['REPLAY?', 'REPLAY', 'REPLAY'],
+        'button text': ['REPLAY?', 'REPLAY?', 'REPLAY?'],
         'button functions': [restart, restart, restart],
         text: 'You defeat the dragon! YOU WIN THE GAME!'
     }
