@@ -1,4 +1,5 @@
 // generate images usin nightcafe AI
+// make the game environment a sci fi/hacking/cyberpunk
 
 let xp = 0;
 let health = 100;
@@ -208,10 +209,11 @@ function goFight(){
     monsterHealthText.innerText = monsterHealth;
 }
 
+// combat
 function attack(){
     text.innerText = 'The ' + monsters[fighting].name + ' attacks.';
     text.innerText += ' You attack it with your ' + weapons[currentWeapon].name + '.';
-    health -= monsters[fighting].level;
+    health -= getMonsterAttackValue(monsters[fighting].level);
     monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;
 
     healthText.innerText = health;
@@ -228,6 +230,11 @@ function dodge(){
     text.innerText = 'You dodge the attack from the ' + monsters[fighting].name + '.';
 }
 
+function getMonsterAttackValue(level){
+    let hit  = (level * 5) - (Math.floor(Math.random() * xp));
+    return hit;
+}
+
 function defeatMonster() {
     gold += Math.floor(monsters[fighting].level *6.7);
     xp += monsters[fighting].level;
@@ -236,8 +243,13 @@ function defeatMonster() {
     update(locations[4]);
 }
 
+// endings
 function lose() {
     update(locations[5]);
+}
+
+function winGame() {
+    update(locations[6]);
 }
 
 function restart() {
@@ -252,8 +264,4 @@ function restart() {
     healthText.innerText = health;
     xpText.innerText = xp;
     goTown();
-}
-
-function winGame() {
-    update(locations[6]);
 }
