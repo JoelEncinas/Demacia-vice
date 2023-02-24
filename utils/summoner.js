@@ -20,8 +20,6 @@ const summonerData = async (name, callback) => {
   }
 };
 
-// get summoner id
-// get match history by puuid
 // get all pings data from every match
 // callback with all data
 // display data in app.js static
@@ -54,8 +52,6 @@ function fetchSummoner(name) {
 function fetchMatchHistory(puuid) {
   const SEARCH_MATCH_HISTORY = `https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=15`;
 
-  // check this puuid  maybe is undefined here
-
   return fetch(SEARCH_MATCH_HISTORY, {
     method: "GET",
     headers: {
@@ -74,5 +70,28 @@ function fetchMatchHistory(puuid) {
       return error;
     });
 }
+
+function fetchMatch(matchHistory) {
+    const SEARCH_MATCH = `https://europe.api.riotgames.com/lol/match/v5/matches/`;
+  
+    // TODO
+    return fetch(SEARCH_MATCH_HISTORY, {
+      method: "GET",
+      headers: {
+        "X-Riot-Token": "RGAPI-b5c9a3a3-2c02-4119-9057-511fec206b1e",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status) {
+          return "not found";
+        } else {
+          return data;
+        }
+      })
+      .catch((error) => {
+        return error;
+      });
+  }
 
 module.exports = summonerData;
