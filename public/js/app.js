@@ -15,7 +15,7 @@ summonerForm.addEventListener("submit", (event) => {
       if (data.error) {
         summonerData.textContent = data.error;
       } else {
-        summonerData.textContent = data.id;
+        summonerData.textContent = data;
       }
     });
   });
