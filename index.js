@@ -2,11 +2,10 @@ const express = require("express");
 const app = express();
 const port = 5500;
 const cors = require("cors");
-const fetch = require("node-fetch");
+const summonerData = require("./utils/summoner");
 
 // middleware
 app.use(cors());
-
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
@@ -14,7 +13,21 @@ app.get("/", (req, res) => {
 });
 
 app.get("/summoner", (req, res) => {
-  res.send("Pings end point");
+  const summoner = req.query.name;
+
+  if (!summoner) {
+    return res.send("enter summoner");
+  }
+
+  summonerData(summoner, (error, result) => {
+    if (error) {
+      return res.send({
+        error,
+      });
+    }
+
+    res.send(result);
+  });
 });
 
 app.get("/about", (req, res) => {
@@ -24,23 +37,6 @@ app.get("/about", (req, res) => {
 app.get("*", (req, res) => {
   res.send("404 Page not found");
 });
-
-let name = "agurin";
-const SEARCH_USERNAME = `https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${name}`;
-
-fetch(SEARCH_USERNAME, {
-  method: "GET",
-  headers: {
-    "X-Riot-Token": "RGAPI-b5c9a3a3-2c02-4119-9057-511fec206b1e",
-  },
-})
-  .then((response) => response.json())
-  .then((data) => {
-    //console.log("Success:", data);
-  })
-  .catch((error) => {
-    console.error("Error:", error);
-  });
 
 app.listen(port, () => {
   console.log(`Success! Your application is running on port ${port}.`);
