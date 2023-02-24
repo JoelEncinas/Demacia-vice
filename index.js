@@ -9,8 +9,14 @@ const summonerData = require("./utils/summoner");
 app.use(cors());
 app.use(express.static("public"));
 
+app.set("view engine", "hbs");
+app.set("views", __dirname + "/views")
+hsb.registerPartials(__dirname + "/partials");
+
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/views/index.html");
+  res.render('index', {
+    title: "Ping Metter"
+  })
 });
 
 app.get("/summoner", (req, res) => {
