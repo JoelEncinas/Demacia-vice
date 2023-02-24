@@ -10,13 +10,13 @@ app.use(cors());
 app.use(express.static("public"));
 
 app.set("view engine", "hbs");
-app.set("views", __dirname + "/views")
+app.set("views", __dirname + "/views");
 hsb.registerPartials(__dirname + "/partials");
 
 app.get("/", (req, res) => {
-  res.render('index', {
-    title: "Ping Metter"
-  })
+  res.render("index", {
+    title: "Ping Metter",
+  });
 });
 
 app.get("/summoner", (req, res) => {
@@ -42,7 +42,9 @@ app.get("/about", (req, res) => {
 });
 
 app.get("*", (req, res) => {
-  res.send("404 Page not found");
+  res.render("404", {
+    title: "Page not found",
+  });
 });
 
 app.listen(port, () => {
