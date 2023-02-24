@@ -1,19 +1,20 @@
-import { RIOT } from '/api';
+import { RIOT } from './api.js';
 
 $(document).ready(() => {
-    API_KEY = RIOT;
+    const API_KEY = RIOT;
+    let name = "agurin"
 
-    URI = `https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/agurin`
+    const URL = `https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${name}`
 
-    // Request with custom header
-    $.ajax({
-        url: URI,
-        headers: { "X-Riot-Token": API_KEY },
-        data: JSON.stringify(data),
-        contentType: 'application/json',
-        async: false,
-        success: function (response) {
-            console.log(response)
-        }
+    let data = $('.summoner');
+
+    fetch(URL, {
+        headers: {
+            'X-Riot-Token': API_KEY,
+        },
     })
+        .then(response => response.json())
+        .catch(error => console.log('Error while fetching:', error))
+
+    data.append("hi");
 })
