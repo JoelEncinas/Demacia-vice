@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const port = 5500;
 const cors = require("cors");
+const hsb = require("hbs");
 const summonerData = require("./utils/summoner");
 
 // middleware
