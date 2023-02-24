@@ -19,11 +19,11 @@ const summonerData = (name, callback) => {
         callback("Summoner not found!", undefined);
       } else {
         id = data.id;
-        callback(undefined, id);
+        callback(undefined, {id: id});
       }
     })
     .catch((error) => {
-      callback("Error: " + error);
+      callback({ error: error });
     });
 };
 

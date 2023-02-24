@@ -23,7 +23,7 @@ app.get("/summoner", (req, res) => {
   const summoner = req.query.name;
 
   if (!summoner) {
-    return res.send("enter summoner");
+    return res.send({error: "Enter summoner"});
   }
 
   summonerData(summoner, (error, result) => {
