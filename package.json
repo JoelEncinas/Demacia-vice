@@ -1,0 +1,28 @@
+{
+  "name": "ping-metter",
+  "version": "1.0.0",
+  "description": "An app that looks into the match history of the players and gets info about how much they use their pings and which pings they use. It let's the user enter their username and generates a visualization of their most used pings, ping frequency etc",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoelEncinas/ping-metter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoelEncinas/ping-metter/issues"
+  },
+  "homepage": "https://github.com/JoelEncinas/ping-metter#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
