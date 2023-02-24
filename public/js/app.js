@@ -4,6 +4,7 @@ const summonerForm = document.getElementById("summoner-form");
 const summonerFormInput = document.getElementById("summoner-form-input");
 const summonerData = document.getElementById("summoner-data");
 
+// display data
 summonerForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const apiUrl = fetchSummoner + "?name=" + summonerFormInput.value;
