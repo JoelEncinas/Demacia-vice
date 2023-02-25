@@ -1,21 +1,22 @@
 const fetch = require("node-fetch");
 
 const RIOT_API = "RGAPI-3cc9fd01-e05b-4b57-a098-e805d3595328";
+const NOT_FOUND = "Summoner not found"
 
 // gather data
 
 const summonerData = async (name, callback) => {
   const puuid = await fetchSummoner(name);
   if (puuid === "not found") {
-    callback("Summoner not found", undefined);
+    callback(NOT_FOUND, undefined);
   } else {
     const matchHistory = await fetchMatchHistory(puuid);
     if (matchHistory === "not found") {
-      callback("Summoner not found", undefined);
+      callback(NOT_FOUND, undefined);
     } else {
       const pings = await fetchPings(puuid, matchHistory);
       if (pings === "not found") {
-        callback("Summoner not found", undefined);
+        callback(NOT_FOUND, undefined);
       } else {
         console.log(pings);
         callback(undefined, pings); // TODO

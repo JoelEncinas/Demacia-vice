@@ -39,16 +39,20 @@ summonerForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const apiUrl = fetchSummoner + "?name=" + summonerFormInput.value;
   summonerFormInput.value = "";
-  summonerData.textContent = "";
+  summonerData.textContent = "Loading...";
+
   fetch(apiUrl).then((response) => {
     response.json().then((data) => {
       if (data.error) {
         summonerData.textContent = data.error;
       } else {
+        summonerData.textContent = "";
+        let i = 0;
         pingElements.forEach((pingElement) => {
-          pingElement.classList.add("d-block");
+          pingElement.classList.add("d-list-item");
           pingElement.classList.remove("d-none");
-          pingElement.textContent = "1";
+          pingElement.textContent = data[i];
+          i++;
         });
       }
     });
