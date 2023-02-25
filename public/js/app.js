@@ -37,6 +37,14 @@ const needVisionPings = document.getElementById(pingNames[10]);
 const onMyWayPings = document.getElementById(pingNames[11]);
 const pushPings = document.getElementById(pingNames[12]);
 
+// badges
+const chillBadge = document.getElementById("chill-badge");
+const cautiousBadge = document.getElementById("cautious-badge");
+const visionBadge = document.getElementById("vision-badge");
+const leaderBadge = document.getElementById("leader-badge");
+const communicativeBadge = document.getElementById("communicative-badge");
+const angryBadge = document.getElementById("angry-badge");
+
 const pingElements = [
   allInPings,
   assistMePings,
@@ -69,18 +77,24 @@ summonerForm.addEventListener("submit", (event) => {
         summonerData.classList.add("d-none");
         pingsData.classList.remove("d-none");
         pingsData.classList.add("d-block");
+
+        // badges
+        let totalPings = 0;
+        for (let ping in data) {
+          totalPings += data[ping];
+        }
+        console.log(totalPings);
+
         let i = 0;
         const maxPings = Math.max(...Object.values(data));
         pingElements.forEach((pingElement) => {
           pingElement.classList.add("d-list-item");
 
+          // bars
           let barColor = "";
           switch (true) {
-            case data[pingNames[i]] >= 0 && data[pingNames[i]] <= 5:
+            case data[pingNames[i]] >= 0 && data[pingNames[i]] <= 10:
               barColor = "bg-success";
-              break;
-            case data[pingNames[i]] >= 6 && data[pingNames[i]] <= 10:
-              barColor = "bg-info";
               break;
             case data[pingNames[i]] >= 11 && data[pingNames[i]] <= 20:
               barColor = "bg-warning";
