@@ -40,7 +40,10 @@
       </header>
 
       <main class="main-index d-flex justify-content-center align-items-center">
-        <div id="content" class="container d-flex flex-column justify-content-center align-items-center">
+        <div
+          id="content"
+          class="container d-flex flex-column justify-content-center align-items-center"
+        >
           <h2 class="text-center mb-5">How much did you ping last game?</h2>
           <form id="summoner-form" class="d-flex" role="search">
             <input
@@ -55,21 +58,22 @@
             </button>
           </form>
           <div id="data-display" class="mb-5">
-            <p id="summoner-data" class="text-danger"></p>
-            <ul id="pings-data" class="d-none">
-              <li id="allInPings" class="ping d-none"></li>
-              <li id="assistMePings" class="ping d-none"></li>
-              <li id="baitPings" class="ping d-none"></li>
-              <li id="basicPings" class="ping d-none"></li>
-              <li id="commandPings" class="ping d-none"></li>
-              <li id="dangerPings" class="ping d-none"></li>
-              <li id="enemyMissingPings" class="ping d-none"></li>
-              <li id="enemyVisionPings" class="ping d-none"></li>
-              <li id="getBackPings" class="ping d-none"></li>
-              <li id="holdPings" class="ping d-none"></li>
-              <li id="needVisionPings" class="ping d-none"></li>
-              <li id="onMyWayPings" class="ping d-none"></li>
-              <li id="pushPings" class="ping d-none"></li>
+            <div id="summoner-data" class="alert alert-secondary d-none">
+            </div>
+            <ul id="pings-data" class="d-none p-4">
+              <li id="allInPings" class="ping"></li>
+              <li id="assistMePings" class="ping"></li>
+              <li id="baitPings" class="ping"></li>
+              <li id="basicPings" class="ping"></li>
+              <li id="commandPings" class="ping"></li>
+              <li id="dangerPings" class="ping"></li>
+              <li id="enemyMissingPings" class="ping"></li>
+              <li id="enemyVisionPings" class="ping"></li>
+              <li id="getBackPings" class="ping"></li>
+              <li id="holdPings" class="ping"></li>
+              <li id="needVisionPings" class="ping"></li>
+              <li id="onMyWayPings" class="ping"></li>
+              <li id="pushPings" class="ping"></li>
             </ul>
           </div>
         </div>

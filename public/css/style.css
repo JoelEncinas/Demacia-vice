@@ -33,10 +33,16 @@ body {
     min-width: 300px;
 }
 
+#summoner-data {
+    padding: 4px 10px !important;
+}
+
 #pings-data {
     list-style: none;
     padding-left: 0;
     margin-block-start: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
 }
 
 .ping-image {
@@ -56,6 +62,7 @@ body {
 
 .progress-bar {
     height: 15px !important;
+    border-radius: 4px;
 }
 
 .ping-tooltip {
