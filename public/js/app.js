@@ -54,6 +54,7 @@ const pingElements = [
 ];
 
 // badges
+const quietBadge = document.getElementById("quiet-badge");
 const chillBadge = document.getElementById("chill-badge");
 const cautiousBadge = document.getElementById("cautious-badge");
 const visionBadge = document.getElementById("vision-badge");
@@ -69,6 +70,7 @@ summonerForm.addEventListener("submit", (event) => {
   const apiUrl = fetchSummoner + "?name=" + summonerFormInput.value;
 
   // hide badges
+  quietBadge.classList.add("d-none");
   chillBadge.classList.add("d-none");
   cautiousBadge.classList.add("d-none");
   visionBadge.classList.add("d-none");
@@ -98,7 +100,19 @@ summonerForm.addEventListener("submit", (event) => {
         }
 
         if (totalPings <= 10) {
+          quietBadge.classList.remove("d-none");
+        }
+
+        if (totalPings > 10) {
           chillBadge.classList.remove("d-none");
+        }
+
+        if (totalPings >= 50) {
+          communicativeBadge.classList.remove("d-none");
+        }
+
+        if (totalPings >= 100) {
+          angryBadge.classList.remove("d-none");
         }
 
         if (data.commandPings >= 15) {
@@ -109,20 +123,12 @@ summonerForm.addEventListener("submit", (event) => {
           cautiousBadge.classList.remove("d-none");
         }
 
-        if (totalPings >= 50) {
-          communicativeBadge.classList.remove("d-none");
-        }
-
         if (data.onMyWayPings >= 15) {
           helpfulBadge.classList.remove("d-none");
         }
 
         if (data.enemyVisionPings >= 2) {
           visionBadge.classList.remove("d-none");
-        }
-
-        if (totalPings >= 150) {
-          angryBadge.classList.remove("d-none");
         }
 
         if (data.baitPings >= 5) {

@@ -19,7 +19,7 @@ const summonerData = async (name, callback) => {
         callback(NOT_FOUND, undefined);
       } else {
         console.log(pings);
-        callback(undefined, pings); // add pings of 10 matches, currently 1
+        callback(undefined, pings); 
       }
     }
   }
