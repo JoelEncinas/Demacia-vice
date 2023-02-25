@@ -2,9 +2,6 @@ const fetch = require("node-fetch");
 
 // gather data
 
-let name = "";
-let puuid = "";
-
 const summonerData = async (name, callback) => {
   const puuid = await fetchSummoner(name);
   if (puuid === "not found") {
@@ -14,8 +11,13 @@ const summonerData = async (name, callback) => {
     if (matchHistory === "not found") {
       callback("not found", undefined);
     } else {
-        console.log(matchHistory);
-        callback(undefined, matchHistory);
+      const pings = await fetchPings(puuid, matchHistory);
+      if (pings === "not found") {
+        callback("not found", undefined);
+      } else {
+        console.log(pings);
+        callback(undefined, { name: "a" }); // TODO
+      }
     }
   }
 };
@@ -71,27 +73,51 @@ function fetchMatchHistory(puuid) {
     });
 }
 
-function fetchMatch(matchHistory) {
-    const SEARCH_MATCH = `https://europe.api.riotgames.com/lol/match/v5/matches/`;
-  
-    // TODO
-    return fetch(SEARCH_MATCH_HISTORY, {
-      method: "GET",
-      headers: {
-        "X-Riot-Token": "RGAPI-b5c9a3a3-2c02-4119-9057-511fec206b1e",
-      },
+function fetchPings(puuid, matchHistory) {
+  const SEARCH_MATCH = `https://europe.api.riotgames.com/lol/match/v5/matches/${matchHistory[0]}`;
+
+  return fetch(SEARCH_MATCH, {
+    method: "GET",
+    headers: {
+      "X-Riot-Token": "RGAPI-b5c9a3a3-2c02-4119-9057-511fec206b1e",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.status) {
+        return "not found";
+      } else {
+        let summoner = 0;
+
+        data.metadata.participants.map((participant, index) => {
+          if (participant === puuid) {
+            summoner = index;
+          }
+          var index = index + 1;
+        });
+
+        let pings = {
+          allInPings: data.info.participants[summoner].allInPings,
+          assistMePings: data.info.participants[summoner].allInPings,
+          baitPings: data.info.participants[summoner].baitPings,
+          basicPings: data.info.participants[summoner].basicPings,
+          commandPings: data.info.participants[summoner].commandPings,
+          dangerPings: data.info.participants[summoner].dangerPings,
+          enemyMissingPings: data.info.participants[summoner].enemyMissingPings,
+          enemyVisionPings: data.info.participants[summoner].enemyVisionPings,
+          getBackPings: data.info.participants[summoner].getBackPings,
+          holdPings: data.info.participants[summoner].holdPings,
+          needVisionPings: data.info.participants[summoner].needVisionPings,
+          onMyWayPings: data.info.participants[summoner].onMyWayPings,
+          pushPings: data.info.participants[summoner].pushPings
+        };
+
+        return pings;
+      }
     })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.status) {
-          return "not found";
-        } else {
-          return data;
-        }
-      })
-      .catch((error) => {
-        return error;
-      });
-  }
+    .catch((error) => {
+      return error;
+    });
+}
 
 module.exports = summonerData;
