@@ -61,6 +61,7 @@ const leaderBadge = document.getElementById("leader-badge");
 const helpfulBadge = document.getElementById("helpful-badge");
 const communicativeBadge = document.getElementById("communicative-badge");
 const angryBadge = document.getElementById("angry-badge");
+const toxicBadge = document.getElementById("toxic-badge");
 
 // display data
 summonerForm.addEventListener("submit", (event) => {
@@ -75,6 +76,7 @@ summonerForm.addEventListener("submit", (event) => {
   helpfulBadge.classList.add("d-none");
   communicativeBadge.classList.add("d-none");
   angryBadge.classList.add("d-none");
+  toxicBadge.classList.add("d-none");
 
   summonerData.classList.remove("d-none");
   summonerData.textContent = "Loading...";
@@ -121,6 +123,10 @@ summonerForm.addEventListener("submit", (event) => {
 
         if (totalPings >= 150) {
           angryBadge.classList.remove("d-none");
+        }
+
+        if (data.baitPings >= 5) {
+          toxicBadge.classList.remove("d-none");
         }
 
         let i = 0;
