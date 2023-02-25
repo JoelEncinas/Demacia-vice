@@ -37,14 +37,6 @@ const needVisionPings = document.getElementById(pingNames[10]);
 const onMyWayPings = document.getElementById(pingNames[11]);
 const pushPings = document.getElementById(pingNames[12]);
 
-// badges
-const chillBadge = document.getElementById("chill-badge");
-const cautiousBadge = document.getElementById("cautious-badge");
-const visionBadge = document.getElementById("vision-badge");
-const leaderBadge = document.getElementById("leader-badge");
-const communicativeBadge = document.getElementById("communicative-badge");
-const angryBadge = document.getElementById("angry-badge");
-
 const pingElements = [
   allInPings,
   assistMePings,
@@ -61,10 +53,29 @@ const pingElements = [
   pushPings,
 ];
 
+// badges
+const chillBadge = document.getElementById("chill-badge");
+const cautiousBadge = document.getElementById("cautious-badge");
+const visionBadge = document.getElementById("vision-badge");
+const leaderBadge = document.getElementById("leader-badge");
+const helpfulBadge = document.getElementById("helpful-badge");
+const communicativeBadge = document.getElementById("communicative-badge");
+const angryBadge = document.getElementById("angry-badge");
+
 // display data
 summonerForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const apiUrl = fetchSummoner + "?name=" + summonerFormInput.value;
+
+  // hide badges
+  chillBadge.classList.add("d-none");
+  cautiousBadge.classList.add("d-none");
+  visionBadge.classList.add("d-none");
+  leaderBadge.classList.add("d-none");
+  helpfulBadge.classList.add("d-none");
+  communicativeBadge.classList.add("d-none");
+  angryBadge.classList.add("d-none");
+
   summonerData.classList.remove("d-none");
   summonerData.textContent = "Loading...";
   pingsData.classList.add("d-none");
@@ -83,10 +94,38 @@ summonerForm.addEventListener("submit", (event) => {
         for (let ping in data) {
           totalPings += data[ping];
         }
-        console.log(totalPings);
+
+        if (totalPings <= 10) {
+          chillBadge.classList.remove("d-none");
+        }
+
+        if (data.commandPings >= 15) {
+          leaderBadge.classList.remove("d-none");
+        }
+
+        if (data.enemyMissingPings >= 15) {
+          cautiousBadge.classList.remove("d-none");
+        }
+
+        if (totalPings >= 50) {
+          communicativeBadge.classList.remove("d-none");
+        }
+
+        if (data.onMyWayPings >= 15) {
+          helpfulBadge.classList.remove("d-none");
+        }
+
+        if (data.enemyVisionPings >= 2) {
+          visionBadge.classList.remove("d-none");
+        }
+
+        if (totalPings >= 150) {
+          angryBadge.classList.remove("d-none");
+        }
 
         let i = 0;
         const maxPings = Math.max(...Object.values(data));
+
         pingElements.forEach((pingElement) => {
           pingElement.classList.add("d-list-item");
 
