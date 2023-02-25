@@ -4,6 +4,21 @@ const summonerForm = document.getElementById("summoner-form");
 const summonerFormInput = document.getElementById("summoner-form-input");
 const summonerData = document.getElementById("summoner-data");
 
+// pings
+const allInPing = document.getElementById("allInPing");
+const assistMePings = document.getElementById("assistMePings");
+const baitPings = document.getElementById("baitPings");
+const basicPings = document.getElementById("basicPings");
+const commandPings = document.getElementById("commandPings");
+const dangerPings = document.getElementById("dangerPings");
+const enemyMissingPings = document.getElementById("enemyMissingPings");
+const enemyVisionPings = document.getElementById("enemyVisionPings");
+const getBackPings = document.getElementById("getBackPings");
+const holdPings = document.getElementById("holdPings");
+const needVisionPings = document.getElementById("needVisionPings");
+const onMyWayPings = document.getElementById("onMyWayPings");
+const pushPings = document.getElementById("pushPings");
+
 // display data
 summonerForm.addEventListener("submit", (event) => {
   event.preventDefault();
