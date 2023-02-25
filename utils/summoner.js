@@ -1,5 +1,7 @@
 const fetch = require("node-fetch");
 
+const RIOT_API = "RGAPI-3cc9fd01-e05b-4b57-a098-e805d3595328";
+
 // gather data
 
 const summonerData = async (name, callback) => {
@@ -35,7 +37,7 @@ function fetchSummoner(name) {
   return fetch(SEARCH_USERNAME, {
     method: "GET",
     headers: {
-      "X-Riot-Token": "RGAPI-b5c9a3a3-2c02-4119-9057-511fec206b1e",
+      "X-Riot-Token": RIOT_API
     },
   })
     .then((response) => response.json())
@@ -57,7 +59,7 @@ function fetchMatchHistory(puuid) {
   return fetch(SEARCH_MATCH_HISTORY, {
     method: "GET",
     headers: {
-      "X-Riot-Token": "RGAPI-b5c9a3a3-2c02-4119-9057-511fec206b1e",
+      "X-Riot-Token": RIOT_API,
     },
   })
     .then((response) => response.json())
@@ -79,7 +81,7 @@ function fetchPings(puuid, matchHistory) {
   return fetch(SEARCH_MATCH, {
     method: "GET",
     headers: {
-      "X-Riot-Token": "RGAPI-b5c9a3a3-2c02-4119-9057-511fec206b1e",
+      "X-Riot-Token": RIOT_API,
     },
   })
     .then((response) => response.json())
