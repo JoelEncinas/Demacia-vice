@@ -5,7 +5,7 @@ const summonerFormInput = document.getElementById("summoner-form-input");
 const summonerData = document.getElementById("summoner-data");
 
 // pings
-const allInPing = document.getElementById("allInPing");
+const allInPings = document.getElementById("allInPings");
 const assistMePings = document.getElementById("assistMePings");
 const baitPings = document.getElementById("baitPings");
 const basicPings = document.getElementById("basicPings");
@@ -19,6 +19,21 @@ const needVisionPings = document.getElementById("needVisionPings");
 const onMyWayPings = document.getElementById("onMyWayPings");
 const pushPings = document.getElementById("pushPings");
 
+const pingElements = [
+  allInPings,
+  assistMePings,
+  baitPings,
+  basicPings,
+  commandPings,
+  dangerPings,
+  enemyMissingPings,
+  enemyVisionPings,
+  getBackPings,
+  holdPings,
+  needVisionPings,
+  onMyWayPings,
+  pushPings]
+
 // display data
 summonerForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -30,7 +45,11 @@ summonerForm.addEventListener("submit", (event) => {
       if (data.error) {
         summonerData.textContent = data.error;
       } else {
-        summonerData.textContent = data;
+        pingElements.forEach((pingElement) => {
+          pingElement.classList.add("d-block");
+          pingElement.classList.remove("d-none");
+          pingElement.textContent = "1";
+        });
       }
     });
   });
