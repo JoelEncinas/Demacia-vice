@@ -1,89 +1,109 @@
-<!DOCTYPE html>
 <html lang="en">
 
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/style.css" />
     <title>{{title}}</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="main-container">
-        <header>
-            <!-- Fixed navbar -->
-            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="/">Ping Metter</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarCollapse">
-                        <span class="navbar-nav me-auto"> </span>
-                        <ul class="navbar-nav mb-2 mb-md-0">
-                            <li class="nav-item">
-                                <a class="nav-link" href="/about">About</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
-
-        <main class="main-about d-flex justify-content-center align-items-center">
-            <div id="content" class="container">
-                <h1 class="h2 text-secondary">The idea</h1>
-                <p class="mb-5">I decided to build the app when I was toying with the riot <a
-                        href="https://developer.riotgames.com/apis" target="_blank">api</a> to do a real time analitycs
-                    page like <a href="https://www.op.gg/" target="_blank">opgg</a>. Each ping was saved for every match
-                    in the <a href="https://developer.riotgames.com/apis#match-v5" target="_blank">match-v5</a> endpoint
-                    and
-                    the thought of creating the app crossed my mind.
-                </p>
-
-                <h1 class="h2 text-secondary">Stack</h1>
-                <p>It uses <span class="text-success">bootstrap</span> for the styling, <span
-                        class="text-success">handlebars.js</span> for the frontend and <span
-                        class="text-success">node</span> &amp; <span class="text-success">express</span> for the
-                    backend.
-                </p>
+      <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="/">Ping Metter</a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarCollapse"
+              aria-controls="navbarCollapse"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <span class="navbar-nav me-auto"> </span>
+              <ul class="navbar-nav mb-2 mb-md-0">
+                <li class="nav-item">
+                  <a class="nav-link" href="/about">About</a>
+                </li>
+              </ul>
             </div>
-        </main>
+          </div>
+        </nav>
+      </header>
 
-        <footer id="footer" class="fixed-bottom">
-            <div class="row">
-                <div class="col-2"></div>
-                <div class="col-8">
-                    <p id="made-by" class="text-center">
-                        Made by
-                        <a href="https://github.com/JoelEncinas" target="_blank">Joel Encinas</a>
-                        &nbsp;&nbsp;•&nbsp;&nbsp;
-                        Theme by
-                        <a href="https://bootswatch.com" target="_blank">bootswatch</a>
-                    </p>
-                    <p id="endorsement">
-                        Ping Metter isn't endorsed by Riot Games and doesn't reflect the
-                        views or opinions of Riot Games or anyone officially involved in
-                        producing or managing League of Legends. League of Legends and
-                        Riot Games are trademarks or registered trademarks of Riot Games,
-                        Inc. League of Legends © Riot Games, Inc.
-                    </p>
-                </div>
-                <div class="col-2"></div>
-            </div>
-        </footer>
+      <main class="main-about d-flex justify-content-center align-items-center">
+        <div id="content" class="container">
+          <h1 class="h2 text-secondary">The idea</h1>
+          <p class="mb-5">I decided to build the app when I was toying with the
+            riot
+            <a
+              href="https://developer.riotgames.com/apis"
+              target="_blank"
+            >api</a>
+            to do a real time analitycs page like
+            <a href="https://www.op.gg/" target="_blank">opgg</a>. Each ping was
+            saved for every match in the
+            <a
+              href="https://developer.riotgames.com/apis#match-v5"
+              target="_blank"
+            >match-v5</a>
+            endpoint and the thought of creating the app crossed my mind.
+          </p>
+
+          <h1 class="h2 text-secondary">Stack</h1>
+          <p>It uses
+            <span class="text-success">bootstrap</span>
+            for the styling,
+            <span class="text-success">handlebars.js</span>
+            for the frontend and
+            <span class="text-success">node</span>
+            &amp;
+            <span class="text-success">express</span>
+            for the backend.
+          </p>
+        </div>
+      </main>
+
+      <footer id="footer" class="fixed-bottom">
+        <div class="row">
+          <div class="col-2"></div>
+          <div class="col-8 d-flex flex-column align-items-center">
+            <p id="made-by" class="text-center">
+              Made by
+              <a href="https://github.com/JoelEncinas" target="_blank">Joel
+                Encinas</a>
+            </p>
+            <p id="endorsement" class="text-center">
+              Ping Metter isn't endorsed by Riot Games and doesn't reflect the
+              views or opinions of Riot Games or anyone officially involved in
+              producing or managing League of Legends. League of Legends and
+              Riot Games are trademarks or registered trademarks of Riot Games,
+              Inc. League of Legends © Riot Games, Inc.
+            </p>
+          </div>
+          <div class="col-2"></div>
+        </div>
+      </footer>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
-        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
-        crossorigin="anonymous"></script>
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+      integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 
 </html>

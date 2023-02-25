@@ -55,7 +55,7 @@ function fetchSummoner(name) {
 }
 
 function fetchMatchHistory(puuid) {
-  const SEARCH_MATCH_HISTORY = `https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=15`;
+  const SEARCH_MATCH_HISTORY = `https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=1`;
 
   return fetch(SEARCH_MATCH_HISTORY, {
     method: "GET",

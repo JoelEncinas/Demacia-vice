@@ -29,6 +29,16 @@ body {
     font-size: 14px;
 }
 
+#pings-data {
+    list-style: none;
+}
+
+.ping-image {
+    width: 50px;
+    height: 100%;
+}
+
 #endorsement {
     font-size: 10px;
+    max-width: 400px;
 }

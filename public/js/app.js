@@ -23,19 +23,19 @@ const pingNames = [
 ];
 
 // pings
-const allInPings = document.getElementById("allInPings");
-const assistMePings = document.getElementById("assistMePings");
-const baitPings = document.getElementById("baitPings");
-const basicPings = document.getElementById("basicPings");
-const commandPings = document.getElementById("commandPings");
-const dangerPings = document.getElementById("dangerPings");
-const enemyMissingPings = document.getElementById("enemyMissingPings");
-const enemyVisionPings = document.getElementById("enemyVisionPings");
-const getBackPings = document.getElementById("getBackPings");
-const holdPings = document.getElementById("holdPings");
-const needVisionPings = document.getElementById("needVisionPings");
-const onMyWayPings = document.getElementById("onMyWayPings");
-const pushPings = document.getElementById("pushPings");
+const allInPings = document.getElementById(pingNames[0]);
+const assistMePings = document.getElementById(pingNames[1]);
+const baitPings = document.getElementById(pingNames[2]);
+const basicPings = document.getElementById(pingNames[3]);
+const commandPings = document.getElementById(pingNames[4]);
+const dangerPings = document.getElementById(pingNames[5]);
+const enemyMissingPings = document.getElementById(pingNames[6]);
+const enemyVisionPings = document.getElementById(pingNames[7]);
+const getBackPings = document.getElementById(pingNames[8]);
+const holdPings = document.getElementById(pingNames[9]);
+const needVisionPings = document.getElementById(pingNames[10]);
+const onMyWayPings = document.getElementById(pingNames[11]);
+const pushPings = document.getElementById(pingNames[12]);
 
 const pingElements = [
   allInPings,
@@ -56,7 +56,6 @@ const pingElements = [
 summonerForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const apiUrl = fetchSummoner + "?name=" + summonerFormInput.value;
-  summonerFormInput.value = "";
   summonerData.textContent = "Loading...";
 
   fetch(apiUrl).then((response) => {
@@ -69,7 +68,7 @@ summonerForm.addEventListener("submit", (event) => {
         pingElements.forEach((pingElement) => {
           pingElement.classList.add("d-list-item");
           pingElement.classList.remove("d-none");
-          pingElement.textContent = pingNames[i] + ": " + data[pingNames[i]];
+          pingElement.innerHTML = `<img class="ping-image" src="img/${pingNames[i]}.png" alt="ping"> ` + data[pingNames[i]];
           i++;
         });
       }
