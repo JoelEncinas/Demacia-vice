@@ -10,6 +10,7 @@ const summonerData = async (name, callback) => {
   if (puuid === "not found") {
     callback(NOT_FOUND, undefined);
   } else {
+    console.log(puuid);
     const matchHistory = await fetchMatchHistory(puuid);
     if (matchHistory === "not found") {
       callback(NOT_FOUND, undefined);
@@ -18,7 +19,6 @@ const summonerData = async (name, callback) => {
       if (pings === "not found") {
         callback(NOT_FOUND, undefined);
       } else {
-        console.log(pings);
         callback(undefined, pings); 
       }
     }

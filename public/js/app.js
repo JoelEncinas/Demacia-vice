@@ -107,11 +107,11 @@ summonerForm.addEventListener("submit", (event) => {
           chillBadge.classList.remove("d-none");
         }
 
-        if (totalPings >= 50) {
+        if (totalPings >= 50 && totalPings < 130) {
           communicativeBadge.classList.remove("d-none");
         }
 
-        if (totalPings >= 100) {
+        if (totalPings >= 130) {
           angryBadge.classList.remove("d-none");
         }
 
@@ -127,7 +127,7 @@ summonerForm.addEventListener("submit", (event) => {
           helpfulBadge.classList.remove("d-none");
         }
 
-        if (data.enemyVisionPings >= 2) {
+        if (data.enemyVisionPings >= 3 || data.needVisionPings >= 3) {
           visionBadge.classList.remove("d-none");
         }
 
