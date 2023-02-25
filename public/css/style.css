@@ -2,9 +2,14 @@ body {
     overflow-x: hidden;
 }
 
-main {
+.main-index {
     margin-top: 15vh;
-    min-height: 60vh;
+    min-height: 69vh;
+}
+
+.main-about,
+.main-404 {
+    min-height: 100vh;
 }
 
 #content {
