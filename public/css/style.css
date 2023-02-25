@@ -34,8 +34,26 @@ body {
 }
 
 .ping-image {
-    width: 50px;
-    height: 100%;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.progress {
+    display: flex;
+    align-items: center;
+    height: 30px !important;
+    background-color: rgba(0, 0, 0, 0);
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.progress-bar {
+    height: 15px !important;
+}
+
+.ping-tooltip {
+    padding-left: 10px;
 }
 
 #endorsement {

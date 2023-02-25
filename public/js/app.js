@@ -5,7 +5,7 @@ const summonerFormInput = document.getElementById("summoner-form-input");
 const summonerData = document.getElementById("summoner-data");
 const pingsData = document.getElementById("pings-data");
 
-// ping names 
+// ping names
 const pingNames = [
   "allInPings",
   "assistMePings",
@@ -19,7 +19,7 @@ const pingNames = [
   "holdPings",
   "needVisionPings",
   "onMyWayPings",
-  "pushPings"
+  "pushPings",
 ];
 
 // pings
@@ -50,7 +50,8 @@ const pingElements = [
   holdPings,
   needVisionPings,
   onMyWayPings,
-  pushPings]
+  pushPings,
+];
 
 // display data
 summonerForm.addEventListener("submit", (event) => {
@@ -65,10 +66,24 @@ summonerForm.addEventListener("submit", (event) => {
       } else {
         summonerData.textContent = "";
         let i = 0;
+        const maxPings = Math.max(...Object.values(data));
         pingElements.forEach((pingElement) => {
           pingElement.classList.add("d-list-item");
           pingElement.classList.remove("d-none");
-          pingElement.innerHTML = `<img class="ping-image" src="img/${pingNames[i]}.png" alt="ping"> ` + data[pingNames[i]];
+          pingElement.innerHTML = `
+          <div class="progress">
+            <img class="ping-image" src="img/${pingNames[i]}.png" alt="ping"> 
+            <div 
+              class="progress-bar bg-success" 
+              role="progressbar" 
+              style="width: ${(data[pingNames[i]] / maxPings) * 100}%;" 
+              aria-valuenow="${data[pingNames[i]]}" 
+              aria-valuemin="0" 
+              aria-valuemax="${maxPings}">
+            </div>
+            <span class="ping-tooltip">${data[pingNames[i]]}</span>
+          </div>
+          `;
           i++;
         });
       }
