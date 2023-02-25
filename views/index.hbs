@@ -40,7 +40,7 @@
       </header>
 
       <main class="main-index d-flex justify-content-center align-items-center">
-        <div id="content" class="container">
+        <div id="content" class="container d-flex flex-column justify-content-center align-items-center">
           <h2 class="text-center mb-5">How much did you ping last game?</h2>
           <form id="summoner-form" class="d-flex" role="search">
             <input
@@ -54,9 +54,9 @@
               Search
             </button>
           </form>
-          <div class="mb-5">
+          <div id="data-display" class="mb-5">
             <p id="summoner-data" class="text-danger"></p>
-            <ul id="pings-data">
+            <ul id="pings-data" class="d-none">
               <li id="allInPings" class="ping d-none"></li>
               <li id="assistMePings" class="ping d-none"></li>
               <li id="baitPings" class="ping d-none"></li>

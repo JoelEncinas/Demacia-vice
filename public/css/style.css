@@ -29,8 +29,14 @@ body {
     font-size: 14px;
 }
 
+#data-display {
+    min-width: 300px;
+}
+
 #pings-data {
     list-style: none;
+    padding-left: 0;
+    margin-block-start: 0;
 }
 
 .ping-image {

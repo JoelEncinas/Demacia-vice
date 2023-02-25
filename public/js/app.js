@@ -58,6 +58,7 @@ summonerForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const apiUrl = fetchSummoner + "?name=" + summonerFormInput.value;
   summonerData.textContent = "Loading...";
+  pingsData.classList.add("d-none");
 
   fetch(apiUrl).then((response) => {
     response.json().then((data) => {
@@ -65,16 +66,37 @@ summonerForm.addEventListener("submit", (event) => {
         summonerData.textContent = data.error;
       } else {
         summonerData.textContent = "";
+        pingsData.classList.remove("d-none");
+        pingsData.classList.add("d-block");
         let i = 0;
         const maxPings = Math.max(...Object.values(data));
         pingElements.forEach((pingElement) => {
           pingElement.classList.add("d-list-item");
           pingElement.classList.remove("d-none");
+
+          let barColor = "";
+          switch (true) {
+            case (data[pingNames[i]] >= 0 && data[pingNames[i]] <= 5):
+              barColor = "bg-success";
+              break;
+            case (data[pingNames[i]] >= 6 && data[pingNames[i]] <= 10):
+              barColor = "bg-info";
+              break;
+            case (data[pingNames[i]] >= 11 && data[pingNames[i]] <= 20):
+              barColor = "bg-warning";
+              break;
+            case (data[pingNames[i]] >= 21):
+              barColor = "bg-danger";
+              break;
+            default:
+              barColor = "bg-success";
+          }
+
           pingElement.innerHTML = `
           <div class="progress">
             <img class="ping-image" src="img/${pingNames[i]}.png" alt="ping"> 
             <div 
-              class="progress-bar bg-success" 
+              class="progress-bar ${barColor}" 
               role="progressbar" 
               style="width: ${(data[pingNames[i]] / maxPings) * 100}%;" 
               aria-valuenow="${data[pingNames[i]]}" 
