@@ -4,6 +4,23 @@ const summonerForm = document.getElementById("summoner-form");
 const summonerFormInput = document.getElementById("summoner-form-input");
 const summonerData = document.getElementById("summoner-data");
 
+// ping names 
+const pingNames = [
+  "allInPings",
+  "assistMePings",
+  "baitPings",
+  "basicPings",
+  "commandPings",
+  "dangerPings",
+  "enemyMissingPings",
+  "enemyVisionPings",
+  "getBackPings",
+  "holdPings",
+  "needVisionPings",
+  "onMyWayPings",
+  "pushPings"
+];
+
 // pings
 const allInPings = document.getElementById("allInPings");
 const assistMePings = document.getElementById("assistMePings");
@@ -51,7 +68,7 @@ summonerForm.addEventListener("submit", (event) => {
         pingElements.forEach((pingElement) => {
           pingElement.classList.add("d-list-item");
           pingElement.classList.remove("d-none");
-          pingElement.textContent = data[i];
+          pingElement.textContent = pingNames[i] + ": " + data[pingNames[i]];
           i++;
         });
       }
