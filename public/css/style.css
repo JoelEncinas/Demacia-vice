@@ -36,6 +36,15 @@ body {
     padding: 4px 10px !important;
 }
 
+.badge {
+    padding: 4px !important;
+    margin: 4px 4px !important;
+}
+
+.badge:hover {
+    cursor: help !important;
+}
+
 #pings-data {
     list-style: none;
     padding-left: 0;
@@ -65,7 +74,7 @@ body {
 }
 
 .ping-tooltip {
-    padding-left: 10px;
+    margin-left: 10px;
 }
 
 #endorsement {

@@ -103,7 +103,7 @@ summonerForm.addEventListener("submit", (event) => {
           quietBadge.classList.remove("d-none");
         }
 
-        if (totalPings > 10) {
+        if (totalPings > 10 && totalPings < 50) {
           chillBadge.classList.remove("d-none");
         }
 
