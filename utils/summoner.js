@@ -19,7 +19,7 @@ const summonerData = async (name, callback) => {
       if (pings === "not found") {
         callback(NOT_FOUND, undefined);
       } else {
-        callback(undefined, pings); 
+        callback(undefined, pings);
       }
     }
   }
@@ -100,23 +100,32 @@ function fetchPings(puuid, matchHistory) {
         });
 
         let pings = {
-          allInPings: data.info.participants[summoner].allInPings,
-          assistMePings: data.info.participants[summoner].allInPings,
-          baitPings: data.info.participants[summoner].baitPings,
-          basicPings: data.info.participants[summoner].basicPings,
-          commandPings: data.info.participants[summoner].commandPings,
-          dangerPings: data.info.participants[summoner].dangerPings,
-          enemyMissingPings: data.info.participants[summoner].enemyMissingPings,
-          enemyVisionPings: data.info.participants[summoner].enemyVisionPings,
-          getBackPings: data.info.participants[summoner].getBackPings,
-          holdPings: data.info.participants[summoner].holdPings,
-          needVisionPings: data.info.participants[summoner].needVisionPings,
-          onMyWayPings: data.info.participants[summoner].onMyWayPings,
-          pushPings: data.info.participants[summoner].pushPings
+          pings: {
+            allInPings: data.info.participants[summoner].allInPings,
+            assistMePings: data.info.participants[summoner].allInPings,
+            baitPings: data.info.participants[summoner].baitPings,
+            basicPings: data.info.participants[summoner].basicPings,
+            commandPings: data.info.participants[summoner].commandPings,
+            dangerPings: data.info.participants[summoner].dangerPings,
+            enemyMissingPings: data.info.participants[summoner].enemyMissingPings,
+            enemyVisionPings: data.info.participants[summoner].enemyVisionPings,
+            getBackPings: data.info.participants[summoner].getBackPings,
+            holdPings: data.info.participants[summoner].holdPings,
+            needVisionPings: data.info.participants[summoner].needVisionPings,
+            onMyWayPings: data.info.participants[summoner].onMyWayPings,
+            pushPings: data.info.participants[summoner].pushPings
+          },
+          info: {
+            name: data.info.participants[summoner].summonerName,
+            level: data.info.participants[summoner].summonerLevel,
+            champion: data.info.participants[summoner].championName,
+            lane: data.info.participants[summoner].lane
+          }
         };
 
         return pings;
       }
+      
     })
     .catch((error) => {
       return error;
