@@ -13,6 +13,7 @@ app.set("view engine", "hbs");
 app.set("views", __dirname + "/views");
 hsb.registerPartials(__dirname + "/partials");
 
+// routes
 app.get("/", (req, res) => {
   res.render("index", {
     title: "Ping Metter",
@@ -38,11 +39,14 @@ app.get("/summoner", (req, res) => {
 });
 
 app.get("/about", (req, res) => {
-  res.send("about end point");
+  res.render("about", {
+    title: "About",
+  });
 });
 
 app.get("*", (req, res) => {
   res.render("404", {
+    error: "404",
     title: "Page not found",
   });
 });
