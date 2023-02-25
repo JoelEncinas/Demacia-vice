@@ -3,6 +3,7 @@ let fetchSummoner = "/summoner";
 const summonerForm = document.getElementById("summoner-form");
 const summonerFormInput = document.getElementById("summoner-form-input");
 const summonerData = document.getElementById("summoner-data");
+const pingsData = document.getElementById("pings-data");
 
 // ping names 
 const pingNames = [
