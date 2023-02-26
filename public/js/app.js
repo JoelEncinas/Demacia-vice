@@ -158,8 +158,10 @@ summonerForm.addEventListener("submit", (event) => {
         // summoner info
         summonerInfo.innerHTML = `
         <p>${data.info.name} <span class="level text-secondary">&nbsp;&nbsp;Lv ${data.info.level}</span></p>
-        <p>${data.info.lane} <span class="level text-secondary">&nbsp;&nbsp;${data.info.champion}</span></p>
+        <img id="summoner-lane" src="img/${data.info.lane}.png" alt="position"><p id="summoner-champion"><span class="level text-secondary">&nbsp;&nbsp;${data.info.champion}</span></p>
         `;
+
+        console.log(data.info.lane);
 
         let i = 0;
         const maxPings = Math.max(...Object.values(data.pings));

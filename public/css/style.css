@@ -54,6 +54,16 @@ body {
     cursor: help !important;
 }
 
+#summoner-lane {
+    width: 25px;
+    height: 100%;
+    border-radius: 5px;
+}
+
+#summoner-champion {
+    display: inline-block;
+}
+
 #pings-data {
     list-style: none;
     padding-left: 0;
