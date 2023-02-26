@@ -127,11 +127,11 @@ summonerForm.addEventListener("submit", (event) => {
           chillBadge.classList.remove("d-none");
         }
 
-        if (totalPings >= 50 && totalPings < 130) {
+        if (totalPings >= 50 && totalPings < 150) {
           communicativeBadge.classList.remove("d-none");
         }
 
-        if (totalPings >= 130) {
+        if (totalPings >= 150) {
           angryBadge.classList.remove("d-none");
         }
 
