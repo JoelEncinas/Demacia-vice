@@ -101,7 +101,7 @@ summonerForm.addEventListener("submit", (event) => {
   summonerData.classList.remove("d-none");
   summonerData.textContent = "Loading...";
   pingsData.classList.add("d-none");
-  summonerInfo.classList.add("d-none")
+  summonerInfo.classList.add("d-none");
 
   fetch(apiUrl).then((response) => {
     response.json().then((data) => {
@@ -109,7 +109,7 @@ summonerForm.addEventListener("submit", (event) => {
         summonerData.textContent = data.error;
       } else {
         summonerData.classList.add("d-none");
-        summonerInfo.classList.remove("d-none")
+        summonerInfo.classList.remove("d-none");
         pingsData.classList.remove("d-none");
         pingsData.classList.add("d-block");
 
@@ -157,11 +157,9 @@ summonerForm.addEventListener("submit", (event) => {
 
         // summoner info
         summonerInfo.innerHTML = `
-        <p>${data.info.name} <span class="level text-secondary">&nbsp;&nbsp;Lv ${data.info.level}</span></p>
+        <p><a href="https://www.op.gg/summoners/euw/${data.info.name}" target="_blank">${data.info.name}</a> <span class="level text-secondary">&nbsp;&nbsp;Lv ${data.info.level}</span></p>
         <img id="summoner-lane" src="img/${data.info.lane}.png" alt="position"><p id="summoner-champion"><span class="level text-secondary">&nbsp;&nbsp;${data.info.champion}</span></p>
         `;
-
-        console.log(data.info.lane);
 
         let i = 0;
         const maxPings = Math.max(...Object.values(data.pings));
@@ -172,10 +170,12 @@ summonerForm.addEventListener("submit", (event) => {
           // bars
           let barColor = "";
           switch (true) {
-            case data.pings[pingNames[i]] >= 0 && data.pings[pingNames[i]] <= 10:
+            case data.pings[pingNames[i]] >= 0 &&
+              data.pings[pingNames[i]] <= 10:
               barColor = "bg-success";
               break;
-            case data.pings[pingNames[i]] >= 11 && data.pings[pingNames[i]] <= 20:
+            case data.pings[pingNames[i]] >= 11 &&
+              data.pings[pingNames[i]] <= 20:
               barColor = "bg-warning";
               break;
             case data.pings[pingNames[i]] >= 21:
