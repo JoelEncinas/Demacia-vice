@@ -8,7 +8,29 @@ body {
 
 .main-about,
 .main-404 {
-    min-height: 100vh;
+    min-height: 85vh;
+}
+
+#header {
+    background-color: #6f42c1;
+}
+
+@media only screen and (min-width: 576px) {
+    #main-bar {
+        min-width: 350px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #main-bar {
+        min-width: 400px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    #main-bar {
+        min-width: 550px;
+    }
 }
 
 #content {

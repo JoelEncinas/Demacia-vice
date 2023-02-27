@@ -108,6 +108,7 @@ summonerForm.addEventListener("submit", (event) => {
       if (data.error) {
         summonerData.textContent = data.error;
       } else {
+        // reset  elements
         summonerData.classList.add("d-none");
         summonerInfo.classList.remove("d-none");
         pingsData.classList.remove("d-none");
