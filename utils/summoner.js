@@ -1,7 +1,8 @@
 const fetch = require("node-fetch");
 
-const RIOT_API = "RGAPI-8afe5f7b-4024-4f3d-b2be-4e719f8aefe3";
-const NOT_FOUND = "Snap! Summoner not found..."
+const RIOT_API = "RGAPI-745c3ffb-9a67-41b4-8392-71bfc1800568";
+const NOT_FOUND = "Snap! Summoner not found...";
+const MATCH_NOT_FOUND = "Snap! Summoner not found...";
 
 // gather data
 
@@ -12,12 +13,12 @@ const summonerData = async (name, callback) => {
   } else {
     console.log(puuid);
     const matchHistory = await fetchMatchHistory(puuid);
-    if (matchHistory === "not found") {
-      callback(NOT_FOUND, undefined);
+    if (matchHistory === "match not found") {
+      callback(MATCH_NOT_FOUND, undefined);
     } else {
       const pings = await fetchPings(puuid, matchHistory);
       if (pings === "not found") {
-        callback(NOT_FOUND, undefined);
+        callback(MATCH_NOT_FOUND, undefined);
       } else {
         callback(undefined, pings);
       }
@@ -38,7 +39,7 @@ function fetchSummoner(name) {
   return fetch(SEARCH_USERNAME, {
     method: "GET",
     headers: {
-      "X-Riot-Token": RIOT_API
+      "X-Riot-Token": RIOT_API,
     },
   })
     .then((response) => response.json())
@@ -66,7 +67,7 @@ function fetchMatchHistory(puuid) {
     .then((response) => response.json())
     .then((data) => {
       if (data.status) {
-        return "not found";
+        return "match not found";
       } else {
         return data;
       }
@@ -88,7 +89,7 @@ function fetchPings(puuid, matchHistory) {
     .then((response) => response.json())
     .then((data) => {
       if (data.status) {
-        return "not found";
+        return "match not found";
       } else {
         let summoner = 0;
 
@@ -107,25 +108,25 @@ function fetchPings(puuid, matchHistory) {
             basicPings: data.info.participants[summoner].basicPings,
             commandPings: data.info.participants[summoner].commandPings,
             dangerPings: data.info.participants[summoner].dangerPings,
-            enemyMissingPings: data.info.participants[summoner].enemyMissingPings,
+            enemyMissingPings:
+              data.info.participants[summoner].enemyMissingPings,
             enemyVisionPings: data.info.participants[summoner].enemyVisionPings,
             getBackPings: data.info.participants[summoner].getBackPings,
             holdPings: data.info.participants[summoner].holdPings,
             needVisionPings: data.info.participants[summoner].needVisionPings,
             onMyWayPings: data.info.participants[summoner].onMyWayPings,
-            pushPings: data.info.participants[summoner].pushPings
+            pushPings: data.info.participants[summoner].pushPings,
           },
           info: {
             name: data.info.participants[summoner].summonerName,
             level: data.info.participants[summoner].summonerLevel,
             champion: data.info.participants[summoner].championName,
-            lane: data.info.participants[summoner].lane
-          }
+            lane: data.info.participants[summoner].individualPosition,
+          },
         };
 
         return pings;
       }
-      
     })
     .catch((error) => {
       return error;
