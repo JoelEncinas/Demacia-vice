@@ -6,3 +6,6 @@ An app that looks into the match history of the players and gets info about how 
 - handlebarsjs
 - bootstrap
 - node & express 
+
+### TODO
+- if game is aram 
