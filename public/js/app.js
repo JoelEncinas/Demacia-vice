@@ -82,12 +82,7 @@ const communicativeBadge = document.getElementById("communicative-badge");
 const angryBadge = document.getElementById("angry-badge");
 const toxicBadge = document.getElementById("toxic-badge");
 
-// display data
-summonerForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const apiUrl = fetchSummoner + "?name=" + summonerFormInput.value;
-
-  // hide badges
+function HideBadges() {
   quietBadge.classList.add("d-none");
   chillBadge.classList.add("d-none");
   cautiousBadge.classList.add("d-none");
@@ -102,59 +97,72 @@ summonerForm.addEventListener("submit", (event) => {
   summonerData.textContent = "Loading...";
   pingsData.classList.add("d-none");
   summonerInfo.classList.add("d-none");
+}
+
+function ResetElements() {
+  summonerData.classList.add("d-none");
+  summonerInfo.classList.remove("d-none");
+  pingsData.classList.remove("d-none");
+  pingsData.classList.add("d-block");
+}
+
+function AssignBadges(data) {
+  let totalPings = 0;
+  for (let ping in data.pings) {
+    totalPings += data.pings[ping];
+  }
+
+  if (totalPings <= 10) {
+    quietBadge.classList.remove("d-none");
+  }
+
+  if (totalPings > 10 && totalPings < 50) {
+    chillBadge.classList.remove("d-none");
+  }
+
+  if (totalPings >= 50 && totalPings < 150) {
+    communicativeBadge.classList.remove("d-none");
+  }
+
+  if (totalPings >= 150) {
+    angryBadge.classList.remove("d-none");
+  }
+
+  if (data.pings.commandPings >= 15) {
+    leaderBadge.classList.remove("d-none");
+  }
+
+  if (data.pings.enemyMissingPings >= 15) {
+    cautiousBadge.classList.remove("d-none");
+  }
+
+  if (data.pings.onMyWayPings >= 15) {
+    helpfulBadge.classList.remove("d-none");
+  }
+
+  if (data.pings.enemyVisionPings >= 3 || data.needVisionPings >= 3) {
+    visionBadge.classList.remove("d-none");
+  }
+
+  if (data.pings.baitPings >= 5) {
+    toxicBadge.classList.remove("d-none");
+  }
+}
+
+// display data
+summonerForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const apiUrl = fetchSummoner + "?name=" + summonerFormInput.value;
+
+  HideBadges();
 
   fetch(apiUrl).then((response) => {
     response.json().then((data) => {
       if (data.error) {
         summonerData.textContent = data.error;
       } else {
-        // reset  elements
-        summonerData.classList.add("d-none");
-        summonerInfo.classList.remove("d-none");
-        pingsData.classList.remove("d-none");
-        pingsData.classList.add("d-block");
-
-        // badges
-        let totalPings = 0;
-        for (let ping in data.pings) {
-          totalPings += data.pings[ping];
-        }
-
-        if (totalPings <= 10) {
-          quietBadge.classList.remove("d-none");
-        }
-
-        if (totalPings > 10 && totalPings < 50) {
-          chillBadge.classList.remove("d-none");
-        }
-
-        if (totalPings >= 50 && totalPings < 150) {
-          communicativeBadge.classList.remove("d-none");
-        }
-
-        if (totalPings >= 150) {
-          angryBadge.classList.remove("d-none");
-        }
-
-        if (data.pings.commandPings >= 15) {
-          leaderBadge.classList.remove("d-none");
-        }
-
-        if (data.pings.enemyMissingPings >= 15) {
-          cautiousBadge.classList.remove("d-none");
-        }
-
-        if (data.pings.onMyWayPings >= 15) {
-          helpfulBadge.classList.remove("d-none");
-        }
-
-        if (data.pings.enemyVisionPings >= 3 || data.needVisionPings >= 3) {
-          visionBadge.classList.remove("d-none");
-        }
-
-        if (data.pings.baitPings >= 5) {
-          toxicBadge.classList.remove("d-none");
-        }
+        ResetElements();
+        AssignBadges(data);
 
         // summoner info
         summonerInfo.innerHTML = `
