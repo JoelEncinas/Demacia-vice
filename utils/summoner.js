@@ -90,14 +90,7 @@ function fetchPings(puuid, matchHistory) {
       if (data.status) {
         return "match not found";
       } else {
-        let summonerIndex = 0;
-
-        data.metadata.participants.map((participant, index) => {
-          if (participant === puuid) {
-            summonerIndex = index;
-          }
-          var index = index + 1;
-        });
+        const summonerIndex = data.metadata.participants.findIndex(participant => participant === puuid);
 
         let summoner = data.info.participants[summonerIndex];
 
