@@ -102,7 +102,7 @@ function fetchPings(puuid, matchHistory) {
         let pings = {
           pings: {
             allInPings: data.info.participants[summoner].allInPings,
-            assistMePings: data.info.participants[summoner].allInPings,
+            assistMePings: data.info.participants[summoner].assistMePings,
             baitPings: data.info.participants[summoner].baitPings,
             basicPings: data.info.participants[summoner].basicPings,
             commandPings: data.info.participants[summoner].commandPings,
