@@ -9,17 +9,17 @@ const MATCH_NOT_FOUND = "Snap! Match not found...";
 const summonerData = async (name, callback) => {
   const puuid = await fetchSummoner(name);
   if (puuid === "not found") {
-    callback(NOT_FOUND, undefined);
+    callback(NOT_FOUND, null);
   } else {
     const matchHistory = await fetchMatchHistory(puuid);
     if (matchHistory === "match not found") {
-      callback(MATCH_NOT_FOUND, undefined);
+      callback(MATCH_NOT_FOUND, null);
     } else {
       const pings = await fetchPings(puuid, matchHistory);
       if (pings === "not found") {
-        callback(MATCH_NOT_FOUND, undefined);
+        callback(MATCH_NOT_FOUND, null);
       } else {
-        callback(undefined, pings);
+        callback(null, pings);
       }
     }
   }

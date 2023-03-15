@@ -38,7 +38,6 @@
   }
   callback(null, pings);
 };
-- y bueno, otro detalle, normalmente es good practice cuando codeas en JS nunca escribir undefined, siempre null
 - en los que el segundo param pasas undefined o nulll puedes no pasarlo directamente: callback(MATCH_NOT_FOUND);
 - data.metadata.participants.map((participant, index) => {
           if (participant === puuid) {
