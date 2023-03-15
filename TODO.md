@@ -38,10 +38,3 @@
   }
   callback(null, pings);
 };
-- en los que el segundo param pasas undefined o nulll puedes no pasarlo directamente: callback(MATCH_NOT_FOUND);
-- data.metadata.participants.map((participant, index) => {
-          if (participant === puuid) {
-            summoner = index;
-          }
-          var index = index + 1;
-        });
