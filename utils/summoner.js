@@ -90,37 +90,38 @@ function fetchPings(puuid, matchHistory) {
       if (data.status) {
         return "match not found";
       } else {
-        let summoner = 0;
+        let summonerIndex = 0;
 
         data.metadata.participants.map((participant, index) => {
           if (participant === puuid) {
-            summoner = index;
+            summonerIndex = index;
           }
           var index = index + 1;
         });
 
+        let summoner = data.info.participants[summonerIndex];
+
         let pings = {
           pings: {
-            allInPings: data.info.participants[summoner].allInPings,
-            assistMePings: data.info.participants[summoner].assistMePings,
-            baitPings: data.info.participants[summoner].baitPings,
-            basicPings: data.info.participants[summoner].basicPings,
-            commandPings: data.info.participants[summoner].commandPings,
-            dangerPings: data.info.participants[summoner].dangerPings,
-            enemyMissingPings:
-              data.info.participants[summoner].enemyMissingPings,
-            enemyVisionPings: data.info.participants[summoner].enemyVisionPings,
-            getBackPings: data.info.participants[summoner].getBackPings,
-            holdPings: data.info.participants[summoner].holdPings,
-            needVisionPings: data.info.participants[summoner].needVisionPings,
-            onMyWayPings: data.info.participants[summoner].onMyWayPings,
-            pushPings: data.info.participants[summoner].pushPings,
+            allInPings: summoner.allInPings,
+            assistMePings: summoner.assistMePings,
+            baitPings: summoner.baitPings,
+            basicPings: summoner.basicPings,
+            commandPings: summoner.commandPings,
+            dangerPings: summoner.dangerPings,
+            enemyMissingPings: summoner.enemyMissingPings,
+            enemyVisionPings: summoner.enemyVisionPings,
+            getBackPings: summoner.getBackPings,
+            holdPings: summoner.holdPings,
+            needVisionPings: summoner.needVisionPings,
+            onMyWayPings: summoner.onMyWayPings,
+            pushPings: summoner.pushPings,
           },
           info: {
-            name: data.info.participants[summoner].summonerName,
-            level: data.info.participants[summoner].summonerLevel,
-            champion: data.info.participants[summoner].championName,
-            lane: data.info.participants[summoner].individualPosition,
+            name: summoner.summonerName,
+            level: summoner.summonerLevel,
+            champion: summoner.championName,
+            lane: summoner.individualPosition,
           },
         };
 

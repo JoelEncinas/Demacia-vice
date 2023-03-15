@@ -47,4 +47,3 @@
           var index = index + 1;
         });
 - const summoner = data.metadata.participants.findIndex(participant => participant === puuid);
-- estaria nice declarar una variable: const foo = data.info.participants[summoner]
