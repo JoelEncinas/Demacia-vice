@@ -5,24 +5,23 @@ const NOT_FOUND = "Snap! Summoner not found...";
 const MATCH_NOT_FOUND = "Snap! Match not found...";
 
 // gather data
-
 const summonerData = async (name, callback) => {
   const puuid = await fetchSummoner(name);
   if (puuid === "not found") {
     callback(NOT_FOUND);
-  } else {
-    const matchHistory = await fetchMatchHistory(puuid);
-    if (matchHistory === "match not found") {
-      callback(MATCH_NOT_FOUND);
-    } else {
-      const pings = await fetchPings(puuid, matchHistory);
-      if (pings === "not found") {
-        callback(MATCH_NOT_FOUND);
-      } else {
-        callback(null, pings);
-      }
-    }
+    return;
   }
+  const matchHistory = await fetchMatchHistory(puuid);
+  if (matchHistory === "match not found") {
+    callback(MATCH_NOT_FOUND);
+    return;
+  }
+  const pings = await fetchPings(puuid, matchHistory);
+  if (pings === "not found") {
+    callback(MATCH_NOT_FOUND);
+    return;
+  }
+  callback(null, pings);
 };
 
 // get all pings data from every match
@@ -90,7 +89,9 @@ function fetchPings(puuid, matchHistory) {
       if (data.status) {
         return "match not found";
       } else {
-        const summonerIndex = data.metadata.participants.findIndex(participant => participant === puuid);
+        const summonerIndex = data.metadata.participants.findIndex(
+          (participant) => participant === puuid
+        );
 
         let summoner = data.info.participants[summonerIndex];
 
