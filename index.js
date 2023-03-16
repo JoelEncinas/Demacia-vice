@@ -16,7 +16,7 @@ hsb.registerPartials(__dirname + "/partials");
 // routes
 app.get("/", (req, res) => {
   res.render("index", {
-    title: "Mind Your Ping",
+    title: "Demacia Vice",
   });
 });
 
