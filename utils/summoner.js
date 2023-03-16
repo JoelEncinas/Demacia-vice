@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
 
-const RIOT_API = "RGAPI-49e80ce6-cb29-420c-8344-2c782f85afb0";
+const RIOT_API = "$API_KEY";
 const NOT_FOUND = "Snap! Summoner not found...";
 const MATCH_NOT_FOUND = "Snap! Match not found...";
 
