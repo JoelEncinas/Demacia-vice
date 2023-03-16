@@ -25,3 +25,11 @@ An app that looks into the match history of the summoner and gets info about how
 <img src="https://github.com/JoelEncinas/Demacia-vice/blob/main/app_demo.png" alt="demo" width="400">
 <img src="https://github.com/JoelEncinas/Demacia-vice/blob/main/app_demo4.png" alt="demo" width="400">
 <img src="https://github.com/JoelEncinas/Demacia-vice/blob/main/app_demo2.png" alt="demo" width="400">
+
+## 💿 Test the app locally
+In the project directory, you can run:
+
+`npm install`
+`npm start`
+
+Runs the app in the development mode, open http://localhost:5500 to view it in your browser.
