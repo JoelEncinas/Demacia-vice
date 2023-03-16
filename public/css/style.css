@@ -2,13 +2,10 @@ body {
     overflow-x: hidden;
 }
 
-.main-index {
-    min-height: 73vh;
-}
-
+.main-index,
 .main-about,
 .main-404 {
-    min-height: 85vh;
+    min-height: 73vh;
 }
 
 #header {
