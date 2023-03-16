@@ -27,9 +27,11 @@ An app that looks into the match history of the summoner and gets info about how
 <img src="https://github.com/JoelEncinas/Demacia-vice/blob/main/app_demo2.png" alt="demo" width="400">
 
 ## 💿 Test the app locally
+
+Replace the RIOT_API variable at `./utils/summoner.js` with your api key. You can get one at [riot page](https://developer.riotgames.com/).  
 In the project directory, you can run:
 
-`npm install`
-`npm start`
+- `npm install`
+- `npm start`
 
-Runs the app in the development mode, open http://localhost:5500 to view it in your browser.
+Open http://localhost:5500 to view it in your browser.
