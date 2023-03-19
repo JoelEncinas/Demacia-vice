@@ -22,10 +22,7 @@ An app that looks into the match history of the summoner and gets info about how
 - [Demacia Vice](https://demacia-vice.onrender.com/)
 
 ## 📷 App screenshots
-<img src="https://github.com/JoelEncinas/Demacia-vice/blob/main/demo_imgs/app_demo1.png" alt="demo" width="400">
-<img src="https://github.com/JoelEncinas/Demacia-vice/blob/main/demo_imgs/app_demo2.png" alt="demo" width="400">
-<img src="https://github.com/JoelEncinas/Demacia-vice/blob/main/demo_imgs/app_demo3.png" alt="demo" width="400">
-<img src="https://github.com/JoelEncinas/Demacia-vice/blob/main/demo_imgs/app_demo4.png" alt="demo" width="400">
+<img src="https://github.com/JoelEncinas/Demacia-vice/blob/main/demo_imgs/app_demo1.png" alt="demo" width="300" height="400"> <img src="https://github.com/JoelEncinas/Demacia-vice/blob/main/demo_imgs/app_demo2.png" alt="demo" width="300" height="400"> <img src="https://github.com/JoelEncinas/Demacia-vice/blob/main/demo_imgs/app_demo3.png" alt="demo" width="300" height="400"> <img src="https://github.com/JoelEncinas/Demacia-vice/blob/main/demo_imgs/app_demo4.png" alt="demo" width="300" height="400">
 
 ## 💿 Test the app locally
 
