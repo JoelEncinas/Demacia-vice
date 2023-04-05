@@ -33,3 +33,7 @@ In the project directory, you can run:
 - `npm start`
 
 Open http://localhost:5500 to view it in your browser.
+
+### TODO
+
+- Add riot api key to deploy 
