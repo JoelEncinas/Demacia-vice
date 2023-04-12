@@ -7,7 +7,7 @@ With Demacia Vice, you can easily enter your summoner username and let the app a
 
 Whether you're a casual player looking to improve your communication skills, or a competitive player aiming for better coordination with your team, Demacia Vice has you covered. Gain valuable insights into your ping usage and optimize your in-game communication strategy. You can even compare your ping usage with friends or other players to see how you stack up.
 
-Demacia Vice is a user-friendly web app that provides you with valuable data to help you understand and optimize your communication style in League of Legends. So why wait? Level up your communication game with Ping Tracker today and elevate your gameplay to new heights!
+Demacia Vice is a user-friendly web app that provides you with valuable data to help you understand and optimize your communication style in League of Legends. So why wait? Level up your communication game with Demacia Vice today and elevate your gameplay to new heights!
 
 ## 🚀 Things I learned about
 - **Handlebarsjs**
